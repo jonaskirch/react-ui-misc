@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-import { Wrapper, Container, Button, Hint, Notification } from "./styles";
+import { Wrapper, Container, Button, Hint, Notification } from './styles';
 
 function IconButton({ icon, hint, size, caption, notifications }) {
   const [showHint, setShowHint] = useState(false);
@@ -37,8 +37,8 @@ IconButton.propTypes = {
 };
 
 IconButton.defaultProps = {
-  hint: "",
+  hint: '',
   size: 40,
-  caption: "",
+  caption: '',
   notifications: null,
 };

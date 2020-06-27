@@ -1,11 +1,11 @@
-import styled from "styled-components";
-import { darken } from "polished";
+import styled from 'styled-components';
+import { darken } from 'polished';
 
 const colors = {
-  icon: "#57a",
-  backgroundButton: "#eee",
-  backgroundButtonHover: "#ddd",
-  backgroundNotification: "rgb(161, 14, 14)",
+  icon: '#57a',
+  backgroundButton: '#eee',
+  backgroundButtonHover: '#ddd',
+  backgroundNotification: 'rgb(161, 14, 14)',
 };
 
 export const Wrapper = styled.div`
@@ -69,9 +69,10 @@ export const Hint = styled.div`
   border-radius: 4px;
   font-size: 13px;
   opacity: 0.9;
+  z-index: 9;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: -8px;
     left: calc(50% - 8px);
