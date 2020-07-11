@@ -17,3 +17,30 @@ export const ContainerInput = styled.div`
   margin: auto;
   max-width: 800px;
 `;
+
+export const ContainerPanel = styled.div`
+  padding: 30px 0;
+  max-width: 950px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const InnerPanel = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 300px;
+
+  span {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  strong {
+    font-size: 35px;
+    font-weight: bold;
+  }
+`;

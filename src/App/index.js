@@ -4,8 +4,15 @@ import { FaFacebook } from 'react-icons/fa';
 import GlobalStyles from '../styles/global';
 import IconButton from '../components/IconButton';
 import Input from '../components/Input';
+import SelectPanel from '../components/SelectPanel';
 
-import { Container, ContainerButton, ContainerInput } from './styles';
+import {
+  Container,
+  ContainerButton,
+  ContainerInput,
+  ContainerPanel,
+  InnerPanel,
+} from './styles';
 
 function App() {
   return (
@@ -56,6 +63,26 @@ function App() {
 
         <IconButton icon={<MdSettings />} />
       </ContainerButton>
+      <ContainerPanel>
+        <SelectPanel showSelectIcon>
+          <InnerPanel>
+            <span>Mensal</span>
+            <strong>R$ 9,90</strong>
+          </InnerPanel>
+        </SelectPanel>
+        <SelectPanel showSelectIcon>
+          <InnerPanel>
+            <span>Trimestral</span>
+            <strong>R$ 19,90</strong>
+          </InnerPanel>
+        </SelectPanel>
+        <SelectPanel showSelectIcon>
+          <InnerPanel>
+            <span>Anual</span>
+            <strong>R$ 39,90</strong>
+          </InnerPanel>
+        </SelectPanel>
+      </ContainerPanel>
       <ContainerInput>
         <Input
           prefixIcon={<FaFacebook />}
