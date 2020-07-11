@@ -29,7 +29,7 @@ function IconButton({ icon, hint, size, caption, notifications }) {
 export default IconButton;
 
 IconButton.propTypes = {
-  icon: PropTypes.func.isRequired,
+  icon: PropTypes.element.isRequired,
   hint: PropTypes.string,
   size: PropTypes.number,
   caption: PropTypes.string,

@@ -33,7 +33,7 @@ function Input({ prefixIcon, prefixText, helpText, ...rest }) {
 export default Input;
 
 Input.propTypes = {
-  prefixIcon: PropTypes.func,
+  prefixIcon: PropTypes.element,
   prefixText: PropTypes.string,
   helpText: PropTypes.string,
 };
