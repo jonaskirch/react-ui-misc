@@ -24,17 +24,20 @@ export const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   border: none;
   background: ${colors.backgroundButton};
   border-radius: 50%;
-  padding: ${(props) => props.size * 0.2}px;
-  transition: background 0.3s;
+  height: ${(props) => props.height}px;
+  width: ${(props) => (props.width > 0 ? `${props.width}px` : '100%')};
+  padding: ${(props) => !props.width && props.height * 0.2}px;
   color: ${colors.icon};
+  transition: background 0.3s;
 
   svg {
     transition: color 0.3s;
     color: ${colors.icon};
-    font-size: ${(props) => props.size * 0.8}px;
+    font-size: ${(props) => props.height * 0.6}px;
   }
 
   &:hover {
@@ -49,8 +52,9 @@ export const Button = styled.button`
 export const Notification = styled.div`
   position: absolute;
   background: ${colors.backgroundNotification};
-  color: #fff;
+  color: #f5f5f5;
   border-radius: 50%;
+  border: 2px solid #f5f5f5;
   padding: 3px 6px;
   min-height: 18px;
   min-width: 18px;
@@ -61,23 +65,49 @@ export const Notification = styled.div`
 `;
 
 export const Hint = styled.div`
+  visibility: ${(props) => (props.visible ? 'visible' : 'hidden')};
+  opacity: ${(props) => (props.visible ? '0.9' : '0')};
+  transition: visibility 0s, opacity 0.3s linear;
   position: absolute;
-  bottom: -35px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
   background: #333;
-  color: #fff;
-  padding: 4px 8px;
+  color: #f5f5f5;
+  padding: 5px 10px;
   border-radius: 4px;
   font-size: 13px;
-  opacity: 0.9;
   z-index: 9;
+  width: ${(props) => props.width}px;
+
+  ${(props) =>
+    props.position === 'top'
+      ? `bottom: ${props.buttonSize + 10}px`
+      : `top: ${props.buttonSize + 10}px`};
+
+  ${(props) => {
+    if (props.align === 'right') return 'right: 0';
+    if (props.align === 'left') return 'left: 0';
+    return '';
+  }};
 
   &::before {
     content: '';
     position: absolute;
-    top: -8px;
-    left: calc(50% - 8px);
+
+    ${(props) => (props.position === 'top' ? 'bottom: -8px' : 'top: -8px')};
+
+    ${(props) => {
+      if (props.align === 'right')
+        return `right: ${props.buttonSize / 2 - 8}px`;
+      if (props.align === 'left') return `left: ${props.buttonSize / 2 - 8}px`;
+      return 'left: calc(50% - 8px);';
+    }};
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-bottom: 8px solid #333;
+    ${(props) =>
+      props.position === 'top'
+        ? 'border-top: 8px solid #333'
+        : 'border-bottom: 8px solid #333'};
   }
 `;

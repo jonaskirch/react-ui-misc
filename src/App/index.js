@@ -1,5 +1,13 @@
 import React from 'react';
-import { MdSettings, MdComment, MdShare } from 'react-icons/md';
+import {
+  MdSettings,
+  MdComment,
+  MdRefresh,
+  MdViewStream,
+  MdApps,
+  MdNotifications,
+  MdArrowUpward,
+} from 'react-icons/md';
 import { FaFacebook } from 'react-icons/fa';
 import GlobalStyles from '../styles/global';
 import IconButton from '../components/IconButton';
@@ -20,48 +28,104 @@ function App() {
       <GlobalStyles />
       <ContainerButton>
         <IconButton
-          icon={<MdSettings />}
-          hint="Configurações"
-          size={40}
-          caption="Configurações"
-          notifications={3}
+          size={48}
+          icon={<MdViewStream />}
+          hint={{
+            text: 'Visualização em lista',
+            align: 'left',
+            width: 150,
+          }}
         />
-
+        <IconButton size={48} icon={<MdRefresh />} hint="Atualizar" />
         <IconButton
+          size={48}
+          icon={<MdSettings />}
+          hint={{
+            text: 'Configurações',
+            align: 'right',
+          }}
+        />
+        <IconButton size={48} icon={<MdApps />} hint="Google apps" />
+        <IconButton
+          size={48}
           icon={<MdComment />}
           hint="Comentários"
-          size={50}
-          notifications={1}
+          notifications={3}
         />
-
         <IconButton
-          icon={<MdShare />}
-          hint="Compartilhar"
-          size={40}
-          notifications={1}
+          size={48}
+          icon={<MdNotifications />}
+          hint="Notificações"
+          notifications={2}
         />
-
         <IconButton
+          size={48}
+          icon={<MdArrowUpward />}
+          caption="Up"
+          hint="Com caption"
+        />
+        <IconButton
+          size={34}
+          icon={<MdViewStream />}
+          hint={{
+            text: 'Visualização em lista',
+            position: 'top',
+            align: 'left',
+            width: 150,
+          }}
+        />
+        <IconButton
+          size={34}
+          icon={<MdRefresh />}
+          hint={{
+            text: 'Atualizar',
+            position: 'top',
+          }}
+        />
+        <IconButton
+          size={34}
           icon={<MdSettings />}
-          hint="Configurações"
-          size={30}
-          notifications={123}
+          hint={{
+            text: 'Configurações',
+            position: 'top',
+            align: 'right',
+          }}
         />
         <IconButton
-          icon={<MdSettings />}
-          hint="Configurações"
-          size={40}
-          notifications={12}
+          size={34}
+          icon={<MdApps />}
+          hint={{
+            text: 'Google apps',
+            position: 'top',
+          }}
         />
-
         <IconButton
-          icon={<MdSettings />}
-          hint="Configurações"
-          size={24}
-          notifications={12}
+          size={34}
+          icon={<MdComment />}
+          hint={{
+            text: 'Comentários',
+            position: 'top',
+          }}
+          notifications={3}
         />
-
-        <IconButton icon={<MdSettings />} />
+        <IconButton
+          size={34}
+          icon={<MdNotifications />}
+          hint={{
+            text: 'Notificações',
+            position: 'top',
+          }}
+          notifications={2}
+        />
+        <IconButton
+          size={34}
+          icon={<MdArrowUpward />}
+          caption="Up"
+          hint={{
+            text: 'Com caption',
+            position: 'top',
+          }}
+        />
       </ContainerButton>
       <ContainerPanel>
         <SelectPanel showSelectIcon>
