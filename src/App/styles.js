@@ -22,8 +22,6 @@ export const ContainerPanel = styled.div`
   padding: 30px 0;
   max-width: 950px;
   margin: auto;
-  display: flex;
-  justify-content: space-between;
 `;
 
 export const InnerPanel = styled.div`

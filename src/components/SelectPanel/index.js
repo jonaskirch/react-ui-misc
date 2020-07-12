@@ -1,25 +1,27 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { MdCheck } from 'react-icons/md';
 
-import { Wrapper, Container, Selected } from './styles';
+import { Wrapper, PanelWrapper, PanelContainer } from './styles';
 
-function SelectPanel({ showSelectIcon, children }) {
+function SelectPanel({ indexSelectedDefault, children }) {
   const [isSelected, setIsSelected] = useState(false);
 
   return (
-    <Wrapper selected={isSelected}>
-      <Container
-        onMouseEnter={() => setIsSelected(true)}
-        onMouseLeave={() => setIsSelected(false)}
-      >
-        {children}
-        {showSelectIcon && isSelected && (
-          <Selected>
-            <MdCheck size={60} color="#333" />
-          </Selected>
-        )}
-      </Container>
+    <Wrapper>
+      {children.map((child, i) => (
+        <PanelWrapper
+          key={i}
+          selected={i === indexSelectedDefault && !isSelected}
+        >
+          <PanelContainer
+            selected={i === indexSelectedDefault && !isSelected}
+            onMouseEnter={() => setIsSelected(true)}
+            onMouseLeave={() => setIsSelected(false)}
+          >
+            {child}
+          </PanelContainer>
+        </PanelWrapper>
+      ))}
     </Wrapper>
   );
 }
@@ -27,10 +29,8 @@ function SelectPanel({ showSelectIcon, children }) {
 export default SelectPanel;
 
 SelectPanel.propTypes = {
-  showSelectIcon: PropTypes.bool,
-  children: PropTypes.oneOfType([PropTypes.node, PropTypes.element]).isRequired,
-};
-
-SelectPanel.defaultProps = {
-  showSelectIcon: false,
+  indexSelectedDefault: PropTypes.number.isRequired,
+  children: PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.node, PropTypes.element])
+  ).isRequired,
 };

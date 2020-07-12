@@ -136,19 +136,15 @@ function App() {
         />
       </ContainerButton>
       <ContainerPanel>
-        <SelectPanel showSelectIcon>
+        <SelectPanel indexSelectedDefault={1}>
           <InnerPanel>
             <span>Mensal</span>
             <strong>R$ 9,90</strong>
           </InnerPanel>
-        </SelectPanel>
-        <SelectPanel showSelectIcon>
           <InnerPanel>
             <span>Trimestral</span>
             <strong>R$ 19,90</strong>
           </InnerPanel>
-        </SelectPanel>
-        <SelectPanel showSelectIcon>
           <InnerPanel>
             <span>Anual</span>
             <strong>R$ 39,90</strong>
