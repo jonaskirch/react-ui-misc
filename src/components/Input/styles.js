@@ -39,14 +39,23 @@ export const Prefix = styled.div`
   }
 `;
 
+export const HelpButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-right: 5px;
+`;
+
 export const HelpButton = styled.button`
   position: relative;
   border: none;
   background: none;
   cursor: default;
   color: #999;
+  height: 20px;
+  width: 20px;
   transition: color 0.3s;
-  margin-right: 5px;
 
   &:hover {
     color: #666;
@@ -54,29 +63,5 @@ export const HelpButton = styled.button`
 
   svg {
     font-size: 20px;
-  }
-`;
-
-export const HelpHint = styled.div`
-  position: absolute;
-  top: 30px;
-  right: -65px;
-  width: 150px;
-  background: #333;
-  color: #fff;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 13px;
-  opacity: 0.9;
-  z-index: 9;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: calc(50% - 8px);
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid #333;
   }
 `;

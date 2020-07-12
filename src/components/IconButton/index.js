@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import Hint from '../Hint';
 
-import { Wrapper, Container, Button, Hint, Notification } from './styles';
+import { Wrapper, Container, Button, Notification } from './styles';
 
-function IconButton({ size, icon, hint, caption, notifications }) {
+function IconButton({ size, icon, hint, renderHint, caption, notifications }) {
   const [showHint, setShowHint] = useState(false);
 
   return (
@@ -19,17 +20,8 @@ function IconButton({ size, icon, hint, caption, notifications }) {
           {caption}
           {notifications > 0 && <Notification>{notifications}</Notification>}
         </Button>
-        {hint && (
-          <Hint
-            buttonSize={size}
-            visible={showHint}
-            position={hint?.position}
-            align={hint?.align}
-            width={hint?.width}
-          >
-            {hint?.text || hint}
-          </Hint>
-        )}
+        {renderHint && renderHint(size, showHint)}
+        {hint && <Hint hint={hint} parentSize={size} visible={showHint} />}
       </Container>
     </Wrapper>
   );
@@ -49,12 +41,14 @@ IconButton.propTypes = {
       width: PropTypes.number,
     }),
   ]),
+  renderHint: PropTypes.func,
   caption: PropTypes.string,
   notifications: PropTypes.number,
 };
 
 IconButton.defaultProps = {
   hint: '',
+  renderHint: null,
   size: 40,
   caption: '',
   notifications: null,

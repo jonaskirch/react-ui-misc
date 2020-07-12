@@ -12,6 +12,7 @@ import { FaFacebook } from 'react-icons/fa';
 import GlobalStyles from '../styles/global';
 import IconButton from '../components/IconButton';
 import Input from '../components/Input';
+import Hint from '../components/Hint';
 import SelectPanel from '../components/SelectPanel';
 
 import {
@@ -55,7 +56,14 @@ function App() {
         <IconButton
           size={48}
           icon={<MdNotifications />}
-          hint="Notificações"
+          // hint="Notificações"
+          renderHint={(parentSize, visible) => (
+            <Hint
+              hint="Notificações"
+              parentSize={parentSize}
+              visible={visible}
+            />
+          )}
           notifications={2}
         />
         <IconButton
@@ -151,16 +159,30 @@ function App() {
         <Input
           prefixIcon={<FaFacebook />}
           prefixText="facebook.com/"
-          helpText="Informe sua página do facebook"
+          helpHint={{ text: 'Informe sua página do facebook', width: 150 }}
           placeholder="Digite aqui"
         />
         <Input
           prefixText="facebook.com/"
-          helpText="Informe sua página do facebook"
+          // helpHint="Informe sua página do facebook"
+          renderHelpHint={(parentSize, visible) => (
+            <Hint
+              hint={{
+                text: 'Informe sua página do facebook',
+                position: 'top',
+                width: 150,
+              }}
+              parentSize={parentSize}
+              visible={visible}
+            />
+          )}
         />
         <Input prefixText="facebook.com/" />
         <Input prefixIcon={<FaFacebook />} />
-        <Input prefixText="www." helpText="Informe seu site" />
+        <Input
+          prefixText="www."
+          helpHint={{ text: 'Informe seu site', width: 150 }}
+        />
       </ContainerInput>
     </Container>
   );
