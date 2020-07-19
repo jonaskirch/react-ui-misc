@@ -57,12 +57,8 @@ function App() {
           size={48}
           icon={<MdNotifications />}
           // hint="Notificações"
-          renderHint={(parentSize, visible) => (
-            <Hint
-              hint="Notificações"
-              parentSize={parentSize}
-              visible={visible}
-            />
+          renderHint={(visible) => (
+            <Hint hint="Notificações" parentSize={48} visible={visible} />
           )}
           notifications={2}
         />
@@ -161,14 +157,14 @@ function App() {
         <Input
           prefixText="facebook.com/"
           // helpHint="Informe sua página do facebook"
-          renderHelpHint={(parentSize, visible) => (
+          renderHelpHint={(visible) => (
             <Hint
               hint={{
                 text: 'Informe sua página do facebook',
                 position: 'top',
                 width: 150,
               }}
-              parentSize={parentSize}
+              parentSize={20}
               visible={visible}
             />
           )}

@@ -20,7 +20,7 @@ function IconButton({ size, icon, hint, renderHint, caption, notifications }) {
           {caption}
           {notifications > 0 && <Notification>{notifications}</Notification>}
         </Button>
-        {renderHint && renderHint(size, showHint)}
+        {renderHint && renderHint(showHint)}
         {hint && <Hint hint={hint} parentSize={size} visible={showHint} />}
       </Container>
     </Wrapper>
