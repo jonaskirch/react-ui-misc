@@ -8,7 +8,7 @@ export const Container = styled.div`
   border-radius: 4px;
   color: #333;
   margin-bottom: 10px;
-  overflow: hidden;
+  /* overflow: hidden; */
 
   input {
     color: #333;
@@ -29,6 +29,8 @@ export const Prefix = styled.div`
   background: #ddd;
   padding-left: 10px;
   padding-right: 5px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
 
   svg {
     font-size: 20px;
