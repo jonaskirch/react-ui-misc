@@ -4,10 +4,11 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   height: 40px;
-  border: 1px solid #ddd;
+  border: 1px solid ${(props) => (props.active ? '#999' : '#ddd')};
   border-radius: 4px;
   color: #333;
   margin-bottom: 10px;
+  overflow: hidden;
 
   input {
     color: #333;

@@ -7,26 +7,32 @@ import Hint from '../Hint';
 import { Container, Prefix, HelpButtonContainer, HelpButton } from './styles';
 
 function Input({ prefixIcon, prefixText, helpHint, renderHelpHint, ...rest }) {
+  const [active, setActive] = useState(false);
   const [showHelpHint, setShowHelpHint] = useState(false);
 
   return (
-    <Container>
+    <Container active={active}>
       {(prefixIcon || prefixText) && (
         <Prefix>
           {prefixIcon}
           {prefixText && <span>{prefixText}</span>}
         </Prefix>
       )}
-      <InputMask {...rest} />
+      <InputMask
+        onFocus={() => setActive(true)}
+        onBlur={() => setActive(false)}
+        {...rest}
+      />
       {(helpHint || renderHelpHint) && (
         <HelpButtonContainer>
           <HelpButton
+            tabIndex={-1}
             onMouseEnter={() => setShowHelpHint(true)}
             onMouseLeave={() => setShowHelpHint(false)}
           >
             <MdHelp />
           </HelpButton>
-          {renderHelpHint && renderHelpHint(20, showHelpHint)}
+          {renderHelpHint && renderHelpHint(showHelpHint)}
           {helpHint && (
             <Hint hint={helpHint} parentSize={20} visible={showHelpHint} />
           )}
