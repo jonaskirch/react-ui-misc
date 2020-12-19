@@ -46,7 +46,7 @@ function App() {
             align: 'right',
           }}
         />
-        <IconButton size={48} icon={<MdApps />} hint="Google apps" />
+        <IconButton size={48} icon={<MdApps />} hint="Google Apps" />
         <IconButton
           size={48}
           icon={<MdComment />}
